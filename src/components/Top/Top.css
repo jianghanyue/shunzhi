@@ -1,0 +1,13 @@
+.top{
+  position: relative;
+  display: flex;
+}
+.top span{
+  display: block;
+  padding-top: 45px;
+  padding-bottom: 20px;
+  width: 100%;
+  line-height: 15px;
+  color: white;
+  text-align: center;
+}

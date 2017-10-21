@@ -1,0 +1,69 @@
+.like{
+      background-image: linear-gradient(-45deg, #F77062 0%, #FE5196 100%)
+}
+.dishess{
+  height: 100vh;
+  padding-bottom: 90px;
+  width: 85%;
+  margin: 0 auto;
+}
+.slick-track>div{
+  background-color: #fff;
+}
+.dish-card{
+  width: 100%;
+  height: 260px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 370px
+}
+.every{
+  display: flex;
+  background-color: #fff;
+  cursor: pointer;
+  position: relative;
+}
+.every>span{
+  display: block;
+  text-align: center;
+}
+.every>span:nth-child(2){
+  text-align: center;
+  font-size: 26px;
+  color: #F77062;
+  line-height: 32px;
+  margin-top: 45px;
+  font-weight: bold;
+}
+.every>span:nth-child(3){
+  color: #878787;
+  text-align: center;
+  margin-top: 20px;
+}
+.every>span:nth-child(4){
+  display: flex;
+  margin: 30px auto;
+  width: 50px;
+  justify-content: space-around;
+  color: #878787;
+}
+.every>span:nth-child(4)>img{
+  width: 25px;
+  height: 25px;
+}
+.every>span:nth-child(5){
+  font-size: 14px;
+  color: #878787;
+  text-align: center;
+  line-height: 24px;
+  position: relative
+}
+
+.dish_desc{
+  height: 24px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(-180deg, rgba(255,255,255,0.00) 0%, #FFFFFF 100%)
+}
