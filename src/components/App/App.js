@@ -7,7 +7,7 @@ import Login from '../Login/Login'
 import Cebian from '../Cebian/Cebian'
 import News from '../News/News'
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Route,
   Redirect
  } from 'react-router-dom'
