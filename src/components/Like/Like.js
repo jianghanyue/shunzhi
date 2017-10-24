@@ -13,16 +13,8 @@ import store from '../../redux/store'
 
 class Like extends Component {
   state = {
-    data:[],
     tittle: '猜你喜欢'
   }
-  componentDidMount = () => {
-   axios.get('http://localhost:3012/data').then(res => {
-     this.setState({
-       data:res.data
-     })
-   })
- }
   onClick = (t) => {
     this.props.history.push(`/xiangqing/${t.id}`)
   }
@@ -50,7 +42,6 @@ class Like extends Component {
         {list}
       </Slider>
     )
-    console.log(list);
     return (
       <div className='like'>
         <Top tittle={this.state.tittle}/>

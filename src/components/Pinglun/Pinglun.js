@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import './Pinglun.css'
 import store from '../../redux/store'
-import axios from 'axios'
 
 class Pinglun extends Component {
   state = {
-    pinglun:[],
+    pinglun:store.getState().shangpin.find( t => t.id == this.props.id).pinglun,
     sss:'',
     firend:[]
   }
@@ -15,6 +14,7 @@ class Pinglun extends Component {
     })
   }
   handleClick = () => {
+    if(this.state.sss.trim()){
     this.setState({
       pinglun:[...this.state.pinglun,{text:this.state.sss,name:store.getState().username}],
       sss:''
@@ -22,31 +22,14 @@ class Pinglun extends Component {
     let data = this.props.data
     let id = this.props.id
     data.pinglun = [...data.pinglun,{text:this.state.sss,name:store.getState().username,id:this.state.pinglun.length+1}]
-    axios.put(`http://localhost:3012/data/${id}`,data).then(
-      res => {
-      }
-    )
     const firend = store.getState().yonghu.find( t => t.name === store.getState().username).firend
     store.getState().yonghu.map( t => {
       if(firend.find( val => val.name==t.name )){
         const yh = t
         yh.haoyoudongtai=[...yh.haoyoudongtai,{text:this.state.sss,name:store.getState().username,img:this.props.data.poster,id:t.haoyoudongtai.length+1}]
-        axios.put(`http://localhost:3012/yonghu/${t.id}`,yh).then(
-          res => {
-          }
-        )
       }
     })
-  }
-  componentDidMount = () => {
-    let id = this.props.id
-    axios.get(`http://localhost:3012/data/${id}`).then(
-      res => {
-        this.setState({
-          pinglun:res.data.pinglun
-        })
-      }
-    )
+    }
   }
   render () {
     const list = this.state.pinglun.map( t =>

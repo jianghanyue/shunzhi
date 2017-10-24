@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import './Xiangqing.css'
-import axios from 'axios'
 import Top from '../Top/Top'
 import gouwuche from './gouwuche.svg'
 import { PieChart, Pie, Cell,AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts'
@@ -46,7 +45,7 @@ class Xiangqing extends Component {
         color:''
       }],
       newdata:[],
-    data:[],
+    data:store.getState().shangpin.find( t => t.id == this.props.match.params.id),
     tittle: '新品'
   }
   handleClick = (d,c,f) => {
@@ -71,16 +70,6 @@ class Xiangqing extends Component {
     })
     }
   }
-  componentDidMount () {
-   const { id } = this.props.match.params
-   axios.get(`http://localhost:3012/data/${id}`).then(
-     res => {
-       this.setState({
-         data:res.data
-       })
-     }
-   )
- }
   render () {
     let width = window.innerWidth - 40
     const data = this.state.chengfen

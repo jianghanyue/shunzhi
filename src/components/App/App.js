@@ -16,27 +16,18 @@ import Like from '../Like/Like'
 import Xiangqing from '../Xiangqing/Xiangqing'
 import Cart_float from '../Cart_float/Cart_float'
 import Cart from '../Cart/Cart'
-import axios from 'axios'
 import Firend from '../Firend/Firend'
 
 class App extends Component {
   componentWillMount = () => {
-    axios.get('http://localhost:3012/yonghu').then(res => {
-      let path = res.data
-      store.dispatch({ type: 'UPDATA_YONGHU', path })
-    axios.get('http://localhost:3012/data').then(res => {
-      let path = res.data
-      store.dispatch({ type: 'ADD_DATA', path })
-    })
       if(window.localStorage.getItem('UserName')){
         const path = true
         store.dispatch({type: 'UPDATA_DENGLU', path})
-        const pather = res.data.find(t => t.name==window.localStorage.getItem('UserName')).deit
+        const pather = store.getState().yonghu.find(t => t.name==window.localStorage.getItem('UserName')).deit
         store.dispatch({type: 'UPDATA_DEIT', pather})
         const pathsan = window.localStorage.getItem('UserName')
         store.dispatch({ type: 'UPDATA_USERNAME', pathsan})
       }
-    })
   }
   render() {
     return (

@@ -14,11 +14,12 @@ class Firend extends Component {
   componentDidMount = () => {
     if(this.props.match.params){
     const { id } = this.props.match.params
-    axios.get(`http://localhost:3012/yonghu/${id}`).then( res => {
+    const res = store.getState().yonghu.find( t => t.id == id)
+    console.log(res);
       this.setState({
-        data:res.data
+        data:res
       })
-      if(res.data.firend.find(t => t.name===store.getState().username)){
+      if(res.firend.find(t => t.name===store.getState().username)){
         this.setState({
           button:'已为好友'
         })
@@ -27,7 +28,6 @@ class Firend extends Component {
           button:'加为好友'
         })
       }
-    })
     }
   }
   handleClick = () => {

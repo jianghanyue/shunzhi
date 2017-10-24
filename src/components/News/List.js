@@ -22,9 +22,6 @@ class List extends Component {
     }
 }
   render () {
-    console.log(store.getState().yonghu);
-    // const haoyoudongtai = this.props.yonghu||this.props.yonghu.find(t => t.name==store.getState().username).haoyoudongtai
-    // console.log(haoyoudongtai);
     let list = null
     if(store.getState().yonghu.length !== 0){
     list = store.getState().yonghu.find(t => t.name==window.localStorage.getItem('UserName')).haoyoudongtai.map( (t,i) => (
@@ -32,7 +29,7 @@ class List extends Component {
         <div className={`feed-expand ${this.state.index === i&&"ent"}`}>{t.text}</div>
         <div className="feed-card">
           <div className="feed-card-header">
-            <Link className="feed-user" to='/'>
+            <Link className="feed-user" to='/news'>
               <div className="feed-avatar"></div>
               <div className="feed-user-info">
                 <div className="feed-username">{t.name}</div>
@@ -43,7 +40,7 @@ class List extends Component {
               <img src={plx} alt=""/>
             </div>
           </div>
-          <Link className='feed-dish' to='/' style={{backgroundImage: `url(${t.img})`}}></Link>
+          <Link className='feed-dish' to='/news' style={{backgroundImage: `url(${t.img})`}}></Link>
         </div>
         <div className="dongtai-name">{t.name}</div>
       </div>

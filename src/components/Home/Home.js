@@ -3,7 +3,6 @@ import './Home.css'
 import pen from './pen.svg'
 import Top from '../Top/Top'
 import store from '../../redux/store'
-import axios from 'axios'
 import { withRouter } from 'react-router'
 import Toggles from './Toggles'
 
@@ -24,16 +23,7 @@ class Home extends Component {
     })
     let deit = store.getState().yonghu.find(t => t.name===store.getState().username)
     deit.deit=store.getState().deit
-    console.log(deit);
-    axios.put(`http://localhost:3012/yonghu/${deit.id}`,deit).then(res => {
-
-  })
 }
-  componentDidMount = () =>{
-    axios.get('http://localhost:3012/yonghu').then(res => {
-      console.log(res.data);
-  })
-  }
   onClick = (t) => {
     this.props.history.push(`/firend/${t.id}`)
   }

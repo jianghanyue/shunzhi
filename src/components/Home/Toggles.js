@@ -12,7 +12,7 @@ class Toggles extends Component {
     const t = this.props.t
     if(this.state.baconIsReady){
         let firend = t
-        firend = firend.firend.filter( re => re.name !== store.getState().username)
+        firend.firend = firend.firend.filter( re => re.name !== store.getState().username)
         console.log(firend);
         axios.put(`http://localhost:3012/yonghu/${t.id}`,firend).then( res => {
         })
