@@ -40,7 +40,7 @@ class List extends Component {
               <img src={plx} alt=""/>
             </div>
           </div>
-          <Link className='feed-dish' to='/news' style={{backgroundImage: `url(${t.img})`}}></Link>
+          <Link className='feed-dish' to='/like' style={{backgroundImage: `url(${t.img})`}}></Link>
         </div>
         <div className="dongtai-name">{t.name}</div>
       </div>

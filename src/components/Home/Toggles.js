@@ -13,18 +13,12 @@ class Toggles extends Component {
     if(this.state.baconIsReady){
         let firend = t
         firend.firend = firend.firend.filter( re => re.name !== store.getState().username)
-        console.log(firend);
-        axios.put(`http://localhost:3012/yonghu/${t.id}`,firend).then( res => {
-        })
         this.setState({
           baconIsReady: false
         })
       }else{
         let firend = t
         firend.firend = [...t.firend,{name: store.getState().username}]
-        console.log(firend);
-        axios.put(`http://localhost:3012/yonghu/${t.id}`,firend).then( res => {
-        })
         this.setState({
           baconIsReady: true
         })
@@ -42,7 +36,6 @@ class Toggles extends Component {
     }
   }
   render () {
-    // console.log(this.props.t.firend.find( t => t.name === store.getState().username ));
     return (
         <label>
           <Toggle

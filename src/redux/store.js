@@ -3,7 +3,7 @@ import { createStore } from 'redux'
 const initState = {
   data:[],
   tan: false,
-  username: '',
+  username: '666',
   denglu: false,
   yonghu:[
     {

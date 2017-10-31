@@ -3,6 +3,7 @@ import './Cart.css'
 import Top from '../Top/Top'
 import store from '../../redux/store'
 import { withRouter } from 'react-router'
+import { Alert } from 'antd'
 
 class Cart extends Component {
   state = {
@@ -54,7 +55,6 @@ class Cart extends Component {
         </div>
       </div>
     ))
-    console.log(total);
     return (
       <div className='cart'>
         <Top tittle={this.state.tittle}/>

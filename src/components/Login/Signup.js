@@ -16,13 +16,14 @@ class Signup extends Component {
     store.dispatch({ type: 'UPDATA_USERNAME', pathsan})
   }
   denglClick = (username) => {
+    return alert('点击登录即可')
     if(store.getState().yonghu.find(t => t.name==username)){
       alert("用户名重复")
     }else{
       if(username.trim()){
+        window.localStorage.setItem('UserName', username)
         const path = true
         store.dispatch({type: 'UPDATA_DENGLU', path})
-        console.log(store.getState().denglu);
         this.props.history.push('/news')
         let data = {
           name:store.getState().username,
@@ -31,9 +32,6 @@ class Signup extends Component {
           firend:[],
           haoyoudongtai:[]
         }
-        axios.post('http://localhost:3012/yonghu', data).then(res => {
-          console.log(res.data);
-        })
         store.dispatch({ type: 'ADD_YONGHU', data})
       }else{
         alert("请填写正确用户名")
@@ -53,8 +51,8 @@ class Signup extends Component {
             <div>
               <input type="text" placeholder='用户名' value={store.getState().username} onChange={this.onChange}/>
               <input type="text" placeholder='Email'/>
-              <input type="text" placeholder='password'/>
-              <input type="text" placeholder='再输一遍'/>
+              <input type="password" placeholder='password'/>
+              <input type="password" placeholder='再输一遍'/>
             </div>
           </div>
           <a className="dl" href='javascript:;' onClick={() => this.denglClick(store.getState().username)}>注册</a>

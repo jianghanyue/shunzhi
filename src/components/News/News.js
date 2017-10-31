@@ -11,7 +11,7 @@ import List from './List'
 
 class News extends Component {
   state = {
-    tittle:'News',
+    tittle:'好友动态',
     yonghu:[]
   }
   render () {

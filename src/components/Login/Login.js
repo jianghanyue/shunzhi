@@ -16,13 +16,8 @@ class Login extends Component {
     const path = !store.getState().tan
     store.dispatch({ type: 'UPDATA_TAN', path })
   }
-  onChange = (e) => {
-    const pathsan = e.target.value
-    store.dispatch({ type: 'UPDATA_USERNAME', pathsan})
-  }
 
   denglClick = (username) => {
-    console.log(store.getState().yonghu.find(t => t.name==username));
     if(store.getState().yonghu.find(t => t.name==username)){
       window.localStorage.setItem('UserName', username)
       const path = true
@@ -39,16 +34,16 @@ class Login extends Component {
         <Top tittle={this.state.tittle}/>
         <div className="denglu">
           <div>
-            <h2>登录</h2>
+            <h2>吮指demo<br />（点击登录即可）</h2>
             <span>链接小而确定的幸福</span>
           </div>
           <div className="inpt">
             <div>
               <input type="text" placeholder='用户名' value={store.getState().username} onChange={this.onChange}/>
-              <input type="text" placeholder='密码'/>
+              <input type="password" placeholder='密码'/>
             </div>
           </div>
-          <a className="dl" href="javascript:;" onClick={() => this.denglClick(store.getState().username)}>登录</a>
+          <a className="dl" href="javascript:;" onClick={() => this.denglClick(store.getState().username)}>登录(点我即可)</a>
           <div className="di"><Link to="/signup">没有账号？请先注册</Link></div>
         </div>
       </div>

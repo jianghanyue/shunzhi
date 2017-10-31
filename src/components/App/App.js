@@ -19,7 +19,7 @@ import Cart from '../Cart/Cart'
 import Firend from '../Firend/Firend'
 
 class App extends Component {
-  componentWillMount = () => {
+  componentDidMount = () => {
       if(window.localStorage.getItem('UserName')){
         const path = true
         store.dispatch({type: 'UPDATA_DENGLU', path})
