@@ -39,7 +39,7 @@ class Login extends Component {
           </div>
           <div className="inpt">
             <div>
-              <input type="text" placeholder='用户名' value={store.getState().username} onChange={this.onChange}/>
+              <input type="text" placeholder='用户名' value={store.getState().username} />
               <input type="password" placeholder='密码'/>
             </div>
           </div>

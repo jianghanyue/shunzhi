@@ -24,6 +24,7 @@ class App extends Component {
         const path = true
         store.dispatch({type: 'UPDATA_DENGLU', path})
         const pather = store.getState().yonghu.find(t => t.name==window.localStorage.getItem('UserName')).deit
+        console.log(pather);
         store.dispatch({type: 'UPDATA_DEIT', pather})
         const pathsan = window.localStorage.getItem('UserName')
         store.dispatch({ type: 'UPDATA_USERNAME', pathsan})

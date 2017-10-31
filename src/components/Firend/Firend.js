@@ -35,8 +35,6 @@ class Firend extends Component {
         const { id } = this.props.match.params
         let firend = store.getState().yonghu.find( t => t.id == id )
         firend.firend = [...firend.firend,{name: store.getState().username}]
-        axios.put(`http://localhost:3012/yonghu/${id}`,firend).then( res => {
-        })
       }
       this.setState({
         button:'已为好友'
